@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+  Original Design: Spectral by HTML5 UP
+    html5up.net
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Jekyll build mod
+-->
+<html>
+
+  {% include head.html %}
+
+  <body class="landing">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+      {% include header.html %}
+
+        <!-- Banner -->
+          <section id="banner">
+            <div class="inner">
+              <h2>{{ site.title }}</h2>
+              <p>{{ site.description }}</p>
+              <!--
+              <ul class="actions">
+                <li><a href="#" class="button special">Activate</a></li>
+              </ul>
+              -->
+            </div>{%
+            if site.greeting %}
+            <a href="#greeting" class="more scrolly">Continue</a>{%
+            else %}
+            <a href="#landing_pages" class="more scrolly">Continue</a>{%
+            endif %}
+          </section>
+
+        <!-- Calendar -->
+          <section id="calendar" class="wrapper style1 special">
+            <h2>Tribe Calendar</h2>
+            <div class="inner">
+              <div class="responsiveCal">
+                <iframe src="https://calendar.google.com/calendar/embed?src=tmntxtribe%40gmail.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+              </div>
+    
+              <header class="major">
+                <img src="/images/tribe_circle_logo_white.svg" width="35%">
+                <h2>Fitness and OCR (Obstacle Course Race) Enthuastists<br />
+                  who enjoy getting stronger and healthier together.</h2>
+                <p>We are a core group of friends and individuals who train, and workout for<br />
+                  OCR's (Obstacle Course Racing), also including short-long distance runs like:<br />
+                  5K, 10K, 15K, and Marathons, trail and hike runs. Even just to live the healthy<br />
+                  and active lifestyle for longevity. We are a Fit Fam. And...We love KBBQ! Whooo ah!</p>
+                <h2><a href="http://tmnttribe.bigcartel.com">Merchandise</a></h2>
+              </header>
+            </div>
+          </section>
+
+        <!-- Contact and links -->
+          <section id="cta" class="wrapper style4">
+            <div class="inner">
+              <header>
+                <h2>{{ site.closing-head }}</h2>
+                <p>{{ site.closing-para }}</p>
+              </header>
+              <ul class="actions">{%
+              for socloc in site.social limit:3 %}{%
+                if socloc[1] %}{%
+                  if socloc[0] == 'email' %}
+                <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-envelope major style1"
+                        ><span class="label">E-mail</span></a></li>{%
+                  else %}
+                <li><a target="_blank" href="{{ socloc[1] }}" class="icon fa-{{ socloc[0] }} major style1"
+                        ><span class="label">{{ socloc[0] }}</span></a></li>{%
+                  endif %}{%
+                endif %}{%
+              endfor %}
+              </ul>
+            </div>
+          </section>
+          <!-- <section id="cta" class="wrapper style4">
+            <div class="inner">
+              <header>
+                <h2>{{ site.closing-head }}</h2>
+                <p>{{ site.closing-para }}</p>
+              </header>
+              <ul class="actions vertical">
+                <li><a href="{{ '/contact/' | prepend: site.baseurl }}" class="button fit special">Contact</a></li>
+              </ul>
+            </div>
+          </section> -->
+
+      {% include footer.html %}
+
+      {% include scripts.html %}
+
+    </div>
+
+  </body>
+
+</html>
